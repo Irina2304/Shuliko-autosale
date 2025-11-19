@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Shuliko-autosale/static/css/main.7acaea2f.css",
+    "main.js": "/Shuliko-autosale/static/js/main.07d3183d.js",
+    "index.html": "/Shuliko-autosale/index.html",
+    "main.7acaea2f.css.map": "/Shuliko-autosale/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/Shuliko-autosale/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
