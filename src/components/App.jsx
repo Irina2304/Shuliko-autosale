@@ -1,7 +1,18 @@
-import React, { useRef } from 'react';
-import { FiDollarSign, FiClock, FiSearch, FiSmile } from 'react-icons/fi';
+import React, { useRef, useState } from 'react';
+
+import {
+  FiDollarSign,
+  FiClock,
+  FiSearch,
+  FiSmile,
+  FiMenu,
+  FiX,
+} from 'react-icons/fi';
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navItems = ['Home', 'Über uns', 'Warum wir', 'Kontakt'];
+
   const cars = [
     { name: '1', image: process.env.PUBLIC_URL + '/images/1.jpg' },
     { name: '2', image: process.env.PUBLIC_URL + '/images/2.jpg' },
@@ -34,32 +45,77 @@ export default function App() {
   return (
     <div id="home" className="font-sans">
       {/* HEADER */}
-      <header className="w-full border-b border-gray-700 bg-gray-900/90 backdrop-blur-md sticky top-0 z-50">
+      <header className="w-full border-b border-gray-700 bg-gray-900 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center py-4 px-4">
           {/* LOGO */}
           <a
             href="#home"
-            className="text-2xl md:text-3xl font-bold tracking-wide text-white flex items-center gap-2 cursor-pointer hover:opacity-90 focus:opacity-90 transition-opacity duration-200"
+            className="text-2xl md:text-3xl font-bold tracking-wide text-white flex items-center gap-2 cursor-pointer hover:opacity-90 transition-opacity"
           >
             <span className="border-l-4 border-orange-500 h-6"></span>
             Shuliko
           </a>
 
-          {/* NAVIGATION */}
+          {/* DESKTOP NAV */}
           <nav className="hidden md:flex gap-6 text-gray-300">
+            {navItems.map(item => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(' ', '')}`}
+                className="relative group hover:text-orange-500 transition-colors"
+              >
+                {item}
+                <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-orange-500 transition-all group-hover:w-full"></span>
+              </a>
+            ))}
+          </nav>
+
+          {/* BURGER BUTTON */}
+          <button
+            className="md:hidden text-white text-3xl z-50"
+            onClick={() => setMenuOpen(true)}
+          >
+            <FiMenu />
+          </button>
+        </div>
+
+        {/* MOBILE MENU BACKDROP */}
+        {menuOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 z-40"
+            onClick={() => setMenuOpen(false)}
+          ></div>
+        )}
+
+        {/* MOBILE SLIDE MENU */}
+        <div
+          className={`fixed top-0 right-0 h-full w-2/3 
+      bg-gray-900 text-white z-50 
+      transform transition-transform duration-300 shadow-xl
+      ${menuOpen ? 'translate-x-0' : 'translate-x-full'} p-6`}
+        >
+          <button
+            className="text-3xl text-white mb-6"
+            onClick={() => setMenuOpen(false)}
+          >
+            <FiX />
+          </button>
+
+          <nav className="flex flex-col gap-6 text-lg">
             {['Home', 'Über uns', 'Warum wir', 'Kontakt'].map(item => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '')}`}
-                className="relative text-gray-300 group cursor-pointer transition-colors duration-200 hover:text-orange-500 focus:text-orange-500 focus:outline-none"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-orange-500 transition-colors"
               >
                 {item}
-                <span className="absolute left-0 -bottom-1 w-0 h-[0.5px] bg-orange-500 transition-all duration-200 group-hover:w-full group-focus:w-full"></span>
               </a>
             ))}
           </nav>
         </div>
       </header>
+
       {/* HERO SECTION */}
       <section
         id="hero"
