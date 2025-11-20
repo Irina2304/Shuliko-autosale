@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Shuliko-autosale/static/css/main.e9372023.css",
-    "main.js": "/Shuliko-autosale/static/js/main.e1e53337.js",
+    "main.css": "/Shuliko-autosale/static/css/main.e18b4b18.css",
+    "main.js": "/Shuliko-autosale/static/js/main.bf7c41b1.js",
     "index.html": "/Shuliko-autosale/index.html",
-    "main.e9372023.css.map": "/Shuliko-autosale/static/css/main.e9372023.css.map",
-    "main.e1e53337.js.map": "/Shuliko-autosale/static/js/main.e1e53337.js.map"
+    "main.e18b4b18.css.map": "/Shuliko-autosale/static/css/main.e18b4b18.css.map",
+    "main.bf7c41b1.js.map": "/Shuliko-autosale/static/js/main.bf7c41b1.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9372023.css",
-    "static/js/main.e1e53337.js"
+    "static/css/main.e18b4b18.css",
+    "static/js/main.bf7c41b1.js"
   ]
 }
